@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Fri, 10 Aug 2018 05:38:40 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Assignment S2</title>
+    
+	<!-- Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. 
+	For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.-->
+   
+   <script>
+   		   var array1;
+		   
+		   function array_function()
+		   {
+		   			var input = document.getElementById("array_ele").value;
+					array1= input.split(',');
+					var i;
+					sum();
+					mul();
+		   }
+   		   function sum()
+		   {		   		
+				var sum1 = 0,i;
+				for(i=0;i<array1.length;i++)
+				{
+				 	sum1 = sum1+Number(array1[i]);
+				}
+				document.getElementById("result_sum").value = sum1;
+				
+							
+		   }
+		   
+		   function mul()
+		   {
+		   		var mul1=1,i;
+				for(i=0;i<array1.length;i++)
+				{
+				 	mul1 = mul1*array1[i];
+				}
+				document.getElementById("result_mul").value =  mul1;
+		   }
+   </script>
+  </head>
+  <body>
+  		<h1>Assigment S2 </h1>
+		<p> Input the numbers seperated by comma <input type="" id="array_ele"/> <br>
+			<br><input type="button" value="Submit" onclick = "array_function()" />
+			<br> <br>Sum : <input type="text" id="result_sum" />
+			<br><br> Product : <input type="text" id="result_mul" />
+		</p>
+  </body>
+</html>

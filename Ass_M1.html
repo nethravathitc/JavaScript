@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Mon, 13 Aug 2018 09:22:20 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	
+	<!-- Validate form input for Name, email, password and URL: using regular expressions -->
+	
+    <title> Assignment M1</title>
+    <script>
+			function validate()
+			{
+			 		 var email= document.details.email.value;
+					 var name = document.details.name.value;
+					 var pass = document.details.pwd.value;
+					 
+					 var emailchk = emailValidate(email);
+					 var namechk = nameValidate(name);
+					 var pwdchk = pwdValidate(pass);
+					 
+			}
+			function emailValidate(email)
+			{
+			 		 var re = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+					 var result = email.match(re);
+					// document.write("Result "+ result);
+					if(result==null)
+					{
+					 	document.getElementById("emailError").innerHTML="Invalid Email Id";
+						return false;
+					}
+					else
+					{
+					 	document.getElementById("emailError").innerHTML="";
+						return true;
+					}
+					
+			}
+			
+			function nameValidate(name)
+			{
+			 		 var re= "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
+					  var result = name.match(re);
+					// document.write("Result "+ result);
+					if(result==null)
+					{
+					 	document.getElementById("nameError").innerHTML="Enter valid Name";
+						return false;
+					}
+					else
+					{
+					 	document.getElementById("nameError").innerHTML="";
+						return true;
+					}
+			}
+			function pwdValidate(pass)
+			{
+			 		var re= "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$";
+					 var result = pass.match(re);
+					// document.write("Result "+ result);
+					if(result==null)
+					{
+					 	document.getElementById("pwdError").innerHTML="please enter valid password (lenght 6 with atleast one (special char & numberand upper &lower case))";
+						return false;
+					}
+					else
+					{
+					 	document.getElementById("pwdError").innerHTML="";
+						return true;
+					}
+			}
+			
+	</script>
+    
+  </head>
+  <body>
+  <p>
+  	 <h1> Assignment M1</h1>
+  	 <form  name="details" action=""  method="post">
+	 Fill up the following details <br><br>
+	 
+	 Name &nbsp; &nbsp; &nbsp; &nbsp;  : <input type="text" name="name" /> 
+	 <span style=color:red id="nameError"></span><br><br />
+	 
+	 Email &nbsp; &nbsp; &nbsp; &nbsp; : <input type="text" name="email" />
+	  <span style=color:red id="emailError"></span><br><br />
+	  
+	 Password &nbsp; : <input type="password" name="pwd" />
+	  <span style=color:red id="pwdError"></span><br><br />
+	  
+	 <input type="button" value=" SUBMIT " onClick= "validate()"/>
+	 </form>
+  </p>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Mon, 13 Aug 2018 04:59:37 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Write a JavaScript function to split a string and convert it into an array of words. 
+	E.g. console.log(string_to_array("Robin Singh")); ["Robin", "Singh"] -->
+    <title>Assignment S18</title>
+    <script>
+	 		function sting_to_array()
+			{
+			 		 var str = document.getElementById("name").value;
+					 var stringArray = str.split(" ");
+					 var i,j;
+					 var arrayNames="[ ";
+					 for(i=0;i<stringArray.length;i++)
+					 {
+					     arrayNames = arrayNames+" \" "+stringArray[i];
+						 if(i!=(stringArray.length-1))
+						 {
+						  		arrayNames = arrayNames+" \", ";					  
+						 }
+					 }
+					 arrayNames=arrayNames+" \"]";
+					 
+					 document.getElementById("array").innerHTML= arrayNames;
+					 
+					
+			}
+	</script>
+     </head>
+  <body>
+  <h1> Assignment S18 </h1>
+  <p> Enter the String : <input type="text" id="name" /> &nbsp; &nbsp; <input type="button" value=" Submit " onClick="sting_to_array()"/>
+  	  <br> The words in the String are: 
+   </p>
+   <p id="array"></p>
+  </body>
+</html>

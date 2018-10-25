@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Wed, 08 Aug 2018 12:31:58 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Exercise1</title>
+    
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <script>
+  		  var books = ["Catch 22","SlaughterHouse 5","Farhenheit 451"];
+		  var i;
+		  document.write("<br> boooks arry size : "+books.length);
+		  
+		  for(i=0 ; i<books.length;i++)
+		  {
+		   		  document.write("<br>inside")
+          		  var bk1 = books[i].split(' ');
+          		  document.write("<br> the number in the book name "+books[i]+" : "+ bk1[1]);
+		}
+		
+		var date= new Date();
+		document.write("<br> the year : "+date.getFullYear());
+		document.write("<br> the month : "+date.getMonth());
+		document.write("<br> the day is : "+date.getDay());
+  </script>
+  </body>
+</html>

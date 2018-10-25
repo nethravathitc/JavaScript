@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Thu, 09 Aug 2018 10:51:16 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    
+    <script>
+			var flip = true;
+			function timer()
+			{
+			 		 
+					 animation = setInterval("pics()",1000);
+			}
+			
+			function pics()
+			{
+			 if(flip)
+			 {
+			  	document.getElementById("image_id").src= "digital.png";
+			 }
+			 else
+			 {
+			  	 document.getElementById("image_id").src="camera.png";
+			 }
+			 flip = !flip;
+			}
+			
+			function stopTimer()
+			{
+			 		 clearInterval(animation);
+			}
+	</script>
+  </head>
+  <body>
+  <p>
+  	 <img src="camara.png" id = "image_id"/>
+	 <input type="button" value="Start TImer" onclick= "timer()" />
+	 <input type="button" value="Stop Timer" onClick = "stopTimer()" />
+  </p>
+  </body>
+</html>

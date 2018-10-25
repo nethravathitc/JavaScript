@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Fri, 10 Aug 2018 10:53:39 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Write a function that returns a month name based on month-number (1 to 12).
+	 The function should throw an exception if the input is other than (1 to 12). 
+	 Accept the month number in a HTML page and alert the month name or exception to the user.-->
+    <title>Assignment S13</title>
+    <script>
+			function monthName()
+			{
+			 		var num = Number(document.getElementById("monthNum").value);
+					
+					if ( num < 1 || num >12)
+					{  
+					   document.getElementById("monthName").innerHTML="The Number you have entereed is invalid. Plz enter valid month";
+					}
+					
+					switch(num)
+					{
+					 case 1: document.getElementById("monthName").innerHTML= "The month is January";
+					 	  	 break;
+					case 2: document.getElementById("monthName").innerHTML= "The month is Febraury";
+					 	  	 break;
+					case 3: document.getElementById("monthName").innerHTML= "The month is March";
+					 	  	 break;
+					 case 4: document.getElementById("monthName").innerHTML= "The month is April";
+					 	  	 break;
+					case 5: document.getElementById("monthName").innerHTML= "The month is May";
+					 	  	 break;
+					case 6: document.getElementById("monthName").innerHTML= "The month is June";
+					 	  	 break;
+					case 7: document.getElementById("monthName").innerHTML= "The month is July";
+					 	  	 break;
+					case 8: document.getElementById("monthName").innerHTML= "The month is August";
+					 	  	 break;
+					case 9: document.getElementById("monthName").innerHTML= "The month is September";
+					 	  	 break;
+					case 10: document.getElementById("monthName").innerHTML= "The month is October";
+					 	  	 break;
+					case 11: document.getElementById("monthName").innerHTML= "The month is November";
+					 	  	 break;
+					case 12: document.getElementById("monthName").innerHTML= "The month is December";
+					 	  	 break;
+						 
+					 
+					 }
+					
+			}
+	</script>
+    
+  </head>
+  <body>
+  <p> <h1> Assignment S13 </h1>
+  	 <br> Enter the Month Number : <input type="text" id="monthNum" /> &nbsp; &nbsp; &nbsp; <input type="button" value=" submit " onClick= "monthName()"/>
+	  <br><br />
+	  <p  id="monthName"></p>
+  </p>
+  </body>
+</html>

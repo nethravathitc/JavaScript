@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Tue, 14 Aug 2018 08:17:26 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Write a JavaScript function to print an integer with commas as thousands separators.
+		 Test Data :
+		 console.log(thousands_separators(1000)); 
+		 "1,000"
+		 console.log(thousands_separators(10000.23)); 
+		 "10,000.23"
+		 console.log(thousands_separators(100000));
+		 "100,000"-->
+    <title> Assignment M14</title>
+	<script>
+			
+			
+			function thousand_seperator()
+			{
+			 	var num1 = document.getElementById("num").value;
+				var num2 = num1.split("");
+				var commas = ((num2.length-1)/3).toFixed(0);
+				
+				var newArrylen;
+				if((num2.length%3)==0)
+				{
+				 	newArrylen = (Number(num2.length)-1)+Number(commas)	  
+				}
+				else
+				{
+				 	newArrylen = Number(num2.length)+Number(commas);
+				}
+				
+				var arrayNew=[];
+				var j= newArrylen-1;
+				var unitPlace=1;
+				
+				for(var i=(num2.length-1); i>=0;i--)
+				{
+				 	arrayNew[j]=num2[i];
+					if((unitPlace%3==0) && i!=0)
+					{
+					 		j--;
+							arrayNew[j]=",";	
+							
+					}
+										
+					 	j--;
+						unitPlace++;
+					
+					
+				}
+				
+				var NumberWithComma="";
+				 for( i=0;i< newArrylen;i++)
+				 {
+		 		   	 NumberWithComma=NumberWithComma+arrayNew[i];
+				 }
+				   
+				document.getElementById("texthere").innerHTML="New number with comma: ";
+				document.getElementById("numTh").innerHTML = NumberWithComma;
+			}
+	
+	</script>
+    
+   
+  </head>
+  <body>
+  <h1> Assignment M14</h1>
+  <p>
+  	 Enter the digits &nbsp; : &nbsp; <input type="text" id="num" />
+	 <br /><br />
+	 <input type="button" value=" SUBMIT " onClick="thousand_seperator()" />
+	 <br /><br />
+	 
+	 <span id="texthere"></span>
+	 <span id="numTh"></span>
+  </p>
+  </body>
+</html>

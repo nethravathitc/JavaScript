@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Mon, 13 Aug 2018 11:51:11 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Write a JavaScript program to sort a list of elements using Quick sort -->
+    <title> Assignment M11</title>
+   <script>
+   		   function sort()
+		   {
+		   		var string = document.getElementById("numArray").value;
+				var strArray = string.split(",");
+				var i, numArray =[];
+				for(i=0;i<strArray.length;i++)
+				{
+				 		numArray[i] = Number(strArray[i]);
+				}
+				
+				var sortedArray = quickSort(numArray,0,(numArray.length-1));
+				
+				document.getElementById("texthere").innerHTML = "The Sorted Array is : ";
+				document.getElementById("sortedArray").innerHTML = sortedArray;
+		   }
+		   
+		   function quickSort(arr, left, right)
+		   {
+  		   		 var len = arr.length, 
+   				 pivot,
+   				 partitionIndex;
+		   		 
+				if(left < right)
+				{
+    				pivot = right;
+    			 	partitionIndex = partition(arr, pivot, left, right);
+				
+					quickSort(arr, left, partitionIndex - 1);
+   					quickSort(arr, partitionIndex + 1, right)
+				}
+				
+				return arr;
+			}
+			
+			function partition(arr, pivot, left, right)
+			{
+   				 var pivotValue = arr[pivot],
+       			 partitionIndex = left;	
+					for (var i=left;i < right; i++)
+					{
+    				 	if(arr[i] < pivotValue)
+						{
+      					swap(arr, i, partitionIndex);
+      					partitionIndex++;
+    					}
+					}
+					swap(arr, right, partitionIndex);
+  					return partitionIndex;	
+			 }	
+			 
+			 function swap(arr, i, j)
+			 {
+   			  var temp = arr[i];
+   			  arr[i] = arr[j];
+   			  arr[j] = temp;
+			 }
+		   
+   </script>
+   
+  </head>
+  <body>
+  <p>
+  <h> Assignment M11</h1>
+  <br> Enter the numbers seperated by comma &nbsp; :&nbsp; &nbsp; <input type="text" id="numArray"  />
+  <br /> <input  type="button" onClick = "sort()"  value=" SUBMIT "/>
+  </p>
+  <span id="texthere"></span>
+  <span id="sortedArray"></span>
+  </body>
+</html>

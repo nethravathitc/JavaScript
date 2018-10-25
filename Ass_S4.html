@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Fri, 10 Aug 2018 08:44:20 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj". -->
+	
+    <title> Assignment S4</title>
+	<script>
+			
+			function rverseStr()
+			{
+			 	var name = document.getElementById("str1").value;
+				var i;
+				var rev =" ";
+				
+				for(i=name.length;i>0;i--)
+				{
+				 	rev=rev+name[i-1];
+				}
+			 	
+				
+				document.getElementById("revStr").value = rev;
+			}
+	</script>
+    
+    
+  </head>
+  <body>
+
+  <p> <h1 align:center> Assignment S4 </h1>
+  	  <br><br />
+	  Enter String : <input type="text" id="str1" /> &nbsp; &nbsp; <input type="button" value="reverse" onClick="rverseStr()" />
+	  <br><br>
+	  Reversed String : <input type="text" id="revStr" />
+   </p>
+  </body>
+</html>

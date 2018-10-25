@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Tue, 07 Aug 2018 11:42:14 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Variables</title>
+    <script>
+			var number1=42;
+			var true_or_false=true;
+			var firstName="Kenny";
+			var num1 =100;
+			var num2 =22;
+			var num3= "33";
+		</script>
+   
+  </head>
+  <body>
+  <script>
+  		  document.write("number1 = "+number1+"<br>"+"true_or_false = "+true_or_false+"<br>"+"firstName = "+firstName);
+  		  var total= num1+num2;
+		  if (total%2==0)
+		  {
+		   	 document.write("<br>The number is even");
+		  }
+		  else
+		  {
+		   	  document.write("<br>The number is odd");
+		  }
+		  document.write("<br>Total is : "+total);
+		  total=num1+num3;
+		  document.write("<br> New total is : "+total);
+		   if (total%2==0)
+		  {
+		   	 document.write("<br>The number is even");
+		  }
+		  else
+		  {
+		   	  document.write("<br>The number is odd");
+		  }
+		  
+  </script>
+  
+  <script>
+  
+  		  var screensize = window.innerWidth;
+		  if(screensize > 1500)
+		  		document.write("<br>Available scrren size is "+screensize+" show Large screen");
+			else
+				document.write("<br>Available scrren size is "+screensize+" Show Small screen");					
+			
+			var identity= "17";
+			if(identity===17)
+				document.write("<br>identity variable is indeed 17");
+			else if(identity==17)
+			{	
+				document.write("<br> identity variable is text 17");
+			}
+				// about Ternary operator
+				
+			var value=21;
+			var even = "Number is even ";
+			var odd = "Number is odd ";
+			var result = (value%2)==0 ? even : odd;
+			
+			document.write("<br> Value : " + result );	
+			var i;
+			for(i=0;i<5;i++)
+			{
+			 	document.write("<br>The value of i is : "+i)
+			}
+				
+			var z =[10,"20", false];
+			for(i=0;i<=3;i++)
+			{
+			 	document.write("<br> The array is : "+z[i]);
+			}
+			var z = new Array();
+			for (i=0;i<5;i++)
+			{
+			 	z[i]=i;
+			 	document.write("<br> z array is "+z[i]);
+			}
+			
+  </script>
+  </body>
+</html>

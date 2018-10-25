@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Thu, 09 Aug 2018 09:11:28 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    
+   <script>
+   		   function image_test()
+		   {
+		   	var images= document.getElementsByTagName("img");
+			//document.write("Total number of images : "+ images.length);
+			var i;
+			var sources="";
+			
+			for(i=0;i<images.length;i++)
+			{
+			 	sources =sources+ "<br>" + images[i].src;
+			}
+			document.getElementById("label_1").innerHTML = sources;
+			
+		   }
+		   
+   </script>
+  </head>
+  <body>
+  <img  src="pic1" />
+  <img  src="pic2" />
+  <p>
+  	 <input type="button" name="button" value=" go" onClick="image_test()" />
+  </p>
+  <label id="label_1"> Image Names</label>
+  </body>
+</html>

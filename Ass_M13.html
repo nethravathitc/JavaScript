@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Tue, 14 Aug 2018 06:48:18 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	<!-- Write a JavaScript program which returns a subset of a string.
+Sample Data : dog
+Expected Output : ["d", "do", "dog", "o", "og", "g"]-->
+    <title>Assignment M13</title>
+    <script>
+			function subSets()
+			{
+			 	var str= document.getElementById("str").value;
+				var strArray=str.split("");
+				//document.write("String Array is :"+strArray);
+				var subsets = sets(strArray);
+								
+				var sub = ""+"[";
+				for(var i=1;i<subsets.length;i++)
+				{
+				 	sub=sub+" ["+subsets[i]+"] ";
+					if(i!=(subsets.length-1))
+					{
+					 	sub=sub+" , ";
+					}
+				}
+				sub=sub+" ]";
+				//document.write("<br>"+		 sub);
+				document.getElementById("subsetsArray").innerHTML= "The Subsets of the given string : "+sub; 
+				
+				
+			}
+	
+			function sets(array)
+			{
+		 		var result = [];
+				result.push([]);
+				var sub=[]
+
+					for (var i = 1;i< (1 << array.length); i++)
+					{
+					  	var subset = [];
+    					for (var j = 0; j < array.length; j++)
+      					if (i & (1 << j))
+        				subset.push(array[j]);
+										
+    					result.push(subset);
+						sub[i] = subset;
+					}
+
+  				//return result;
+				return sub;
+			}
+	</script>
+    
+  </head>
+  <body>
+  <p>
+  <h1> Assignment M13</h1>
+  <br />Enter the String &nbsp; :&nbsp; <input type="text" id="str" />
+  <br><br />
+  <input  type="button" value=" SUBMIT " onClick="subSets()" /> 
+  <br><br />
+  <span id="subsetsArray"></span>
+  </p>
+  </body>
+</html>

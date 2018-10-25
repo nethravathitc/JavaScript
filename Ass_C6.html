@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Thu, 16 Aug 2018 07:12:29 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+  	<script>
+			var stacksize =0;
+			var queuesize =0;
+			class Stack
+			{
+			  constructor()
+			  {
+			   		this.items =[];
+					
+			  }
+			}
+			class Queue
+			{
+			  constructor()
+			  {
+			   		this.data =[];
+					
+			  }
+			}
+			
+			var stack = new Stack();
+			var queue = new Queue();
+			 
+			function push()
+			{			
+							
+			 		if("stackSize" in localStorage)
+					{
+ 					 	stacksize =  localStorage.getItem("stackSize");
+						document.getElementById("len").value= stacksize;
+					 } 
+					 else
+					 {
+  					     stacksize = document.getElementById("len").value;
+						 localStorage.setItem("stackSize", stacksize);
+						 document.getElementById("len").value= "";
+					 }
+					 
+					 if("StackItems" in localStorage)
+					 {
+					  	var localstorage = localStorage.getItem("StackItems");
+						
+						stack.items = localstorage.split(",");
+					 }
+					 					 		 		
+					 if(stack.items.length==stacksize )
+					 {
+					  		document.getElementById("stackError").innerHTML= "STACK FULL !!!";
+							return;
+					 }
+					 else
+					 {
+					  	 document.getElementById("stackError").innerHTML= "";
+					 }
+					 
+					 var element = document.getElementById("pushElement").value;
+					
+					 stack.items.push(element);
+					 localStorage.setItem("StackItems", stack.items);
+					 
+					document.getElementById("stackDisplay").innerHTML = stack.items;
+											
+			}
+			
+			function pop()
+			{
+			 		
+			 		 if("StackItems" in localStorage)
+					 {
+					  	var localstorage = localStorage.getItem("StackItems");
+						stack.items = localstorage.split(",");
+					
+					 }
+					 else
+					 {
+					  	 document.getElementById("stackError").innerHTML= "STACK EMPTY !!! ";
+						 document.getElementById("stackDisplay").innerHTML = "";
+							return;
+					 }
+					 	
+			 		if("stackSize" in localStorage)
+					{
+ 					 	stacksize =  localStorage.getItem("stackSize");
+					 } 
+					 document.getElementById("len").value= stacksize;
+									
+					 if(stacksize==0 || stack.items == "")
+					 {
+					  		document.getElementById("stackError").innerHTML= "STACK EMPTY !!! ";
+							 localStorage.removeItem("StackItems");
+							document.getElementById("stackDisplay").innerHTML = "";
+							return;
+					 }
+					 else
+					 {
+					  	 document.getElementById("stackError").innerHTML= "";	 
+					 }
+					 var localstorage = localStorage.getItem("StackItems");
+					 stack.items = localstorage.split(",");
+					 
+					 var element = stack.items.pop();
+					 localStorage.setItem("StackItems", stack.items);
+					 
+					
+					 document.getElementById("popElement").value = element;
+					 document.getElementById("stackDisplay").innerHTML = stack.items;
+					 
+			}
+			
+						
+			function resetStack()
+			{
+			 		 localStorage.removeItem("StackItems");
+					 localStorage.removeItem("stackSize");
+					 document.getElementById("stackError").innerHTML= "";
+					  document.getElementById("len").value= "";
+					  document.getElementById("pushElement").value= "";
+					  document.getElementById("popElement").value= "";
+					  document.getElementById("stackDisplay").innerHTML= "";
+			}
+			
+			function add()
+				{		
+					
+							
+			 		if("QueueSize" in localStorage)
+					{
+ 					 	queuesize =  localStorage.getItem("QueueSize");
+					 } 
+					 else
+					 {
+  					     queuesize = document.getElementById("Qlen").value;
+						 localStorage.setItem("QueueSize", queuesize);
+						
+					 }
+					 
+					 if("QueueItems" in localStorage)
+					 {
+					  	var localstorage = localStorage.getItem("QueueItems");
+						queue.data = localstorage.split(",");
+						
+					 }
+					 					 		 		
+					 if( queue.data.length >=queuesize )
+					 {
+					  		document.getElementById("queueError").innerHTML= "QUEUE FULL !!!";
+							return;
+					 }
+					 else
+					 {
+					  	 document.getElementById("queueError").innerHTML= "";
+					 }
+					 
+					 var element = document.getElementById("addElement").value;
+					
+					 queue.data.push(element);
+					 localStorage.setItem("QueueItems", queue.data);
+					 document.getElementById("queueDisplay").innerHTML = queue.data;
+										
+			} 
+			
+			function remove()
+			{
+			 		 if("QueueItems" in localStorage)
+					 {
+					  	var localstorage = localStorage.getItem("QueueItems");
+						queue.data = localstorage.split(",");
+					
+					 }
+					 else
+					 {
+					  	 document.getElementById("queueError").innerHTML= "QUEUE EMPTY !!! ";
+						 document.getElementById("stackDisplay").innerHTML = "";
+						 return;
+					 }
+					 	
+			 		if("QueueSize" in localStorage)
+					{
+ 					 	queuesize =  localStorage.getItem("QueueSize");
+					 } 
+					 document.getElementById("Qlen").value= queuesize;
+									
+					 if(queuesize==0 || queue.data == "")
+					 {
+					  		document.getElementById("queueError").innerHTML= "QUEUE EMPTY !!! ";
+							 localStorage.removeItem("QueueItems");
+							document.getElementById("queueDisplay").innerHTML = "";
+							return;
+					 }
+					 else
+					 {
+					  	 document.getElementById("queueError").innerHTML= "";	 
+					 }
+					 var localstorage = localStorage.getItem("QueueItems");
+					  queue.data = localstorage.split(",");
+					 
+					 var element =  queue.data.shift();
+					 localStorage.setItem("QueueItems", queue.data);
+					 
+					 document.getElementById("removeElement").value = element;
+					 document.getElementById("queueDisplay").innerHTML = queue.data;
+				}
+			
+			
+			function resetQueue()
+			{
+			 		 localStorage.removeItem("QueueItems");
+					 localStorage.removeItem("QueueSize");
+					 document.getElementById("queueError").innerHTML= "";
+					  document.getElementById("Qlen").value= "";
+					  document.getElementById("addElement").value= "";
+					  document.getElementById("removeElement").value= "";
+					  document.getElementById("queueDisplay").innerHTML= "";
+			}
+			
+	</script>  
+  
+  </head>
+  <body>
+  
+  <p>
+  	 <h1> Assignment C6</h1>
+	 <br /><br />
+	 
+	  <h2> STACK </h2>
+	 Enter the Stack Size : <input type="text" value="" id="len" />  
+	 <br>
+	 Enter the number you want to push into the STACK : 
+	 <input type="text"   value ="" id="pushElement"/> &nbsp; &nbsp; 
+	 <input type="button" value=" PUSH " onClick="push()" />
+	 <input type="button" value=" POP " onClick="pop()" /> &nbsp; &nbsp; The popped element :
+	 <input type="text" id="popElement" />
+	 <br>
+	 <input type="button" value = "RESET STACK" onClick="resetStack()" />
+	<span style=color:red id="stackError"></span>
+	<br > STACK Contains : 	<span id="stackDisplay"></span>
+	 <br /><br /><br />
+	 </p>
+	 <p>
+	 <h2> QUEUE </h2>
+	 Enter the Queue Size : <input type="text" value="" id="Qlen" /> 
+	 <br>
+	 Enter the number you want to add to the QUEUE &nbsp;  : <input type="text" id="addElement" /> &nbsp; &nbsp; <input type="button" value=" ADD " onClick="add()" />
+	  <input type="button" value=" REMOVE " onClick="remove()" /> &nbsp; &nbsp; The Removed element : <input type="text" id="removeElement" />
+	  <br> <input type="button" value = "RESET QUEUE" onClick="resetQueue()" />
+	 <span style=color:red id="queueError"></span>
+	<br > QUEUE Contains : 	<span id="queueDisplay"></span>
+	
+  </p>
+  
+  </body>
+</html>

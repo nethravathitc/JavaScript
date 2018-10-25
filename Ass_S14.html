@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Mon, 13 Aug 2018 07:43:34 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	
+	<!--Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.-->
+    
+	<title>Assignment S14</title>
+	
+	<script>
+			function funGreater()
+			{
+			 		 var numA= document.getElementById("num1").value;
+					 var numB = document.getElementById("num2").value;
+					 
+					 document.getElementById("greatest").value = max(numA,numB);
+			}
+			
+			function max(param1, param2)
+			{
+			 		 if(Number(param1) > Number(param2))
+					 {
+					  		return param1;
+					 }
+					 else
+					 {
+					  	 	return param2;
+					 }
+			}
+	</script>
+    
+    
+  </head>
+  <body>
+
+  </body>
+  <h1>Assignment S14</h1>
+  <p>
+  	Enter first Number : <input type="text"  id="num1" />  &nbsp; &nbsp; 
+	
+	Enter Second Number : <input type="text" id="num2" /> 
+	<br /> <br><input type="button" value=" Submit "  onClick="funGreater()"/>
+	<br> <br> 
+	Greatest Number is : <input type="text" id="greatest" />
+	
+  </p>
+  
+</html>

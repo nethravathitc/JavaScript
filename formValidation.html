@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="CoffeeCup HTML Editor (www.coffeecup.com)">
+    <meta name="dcterms.created" content="Wed, 08 Aug 2018 13:19:21 GMT">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title></title>
+    
+   <script>
+   		   function validate()
+		   {
+		   			var emailck = emailCheck();
+					var payck = paymentCheck();
+					var tncck = tncCheck();
+					
+					if(emailck && payck && tncck)
+					{
+					 		   document.form1.submit();
+					}
+					else
+					{
+					 	return;
+					}
+					
+		   }
+		   
+		   function emailCheck()
+		   {
+		   		var exist = document.getElementById("emailid").value;
+				//document.write("inside emailcheck function")
+		   			if (exist=="")
+					{
+					   document.getElementById("emailerror").innerHTML= "Email Required";
+					   return false;
+					}
+					
+					else
+					{
+					 	document.getElementById("emailerror").innerHTML= "";
+					 	return true;
+					}
+		   }
+		   
+		   function paymentCheck()
+		   {
+		   			var payment1="";
+					var len = document.form1.payment.length;
+					var i;
+					//document.write("Hai " + len+"  "+document.form1.email.value);
+					
+					for(i=0;i<len;i++)
+					{
+					 	//document.write("Hai "+document.form1.payment[i].checked+ " i and len value "+i+" "+len);
+						//var chk = document.form1.payment[i].checked;
+							
+					 	if(document.form1.payment[i].checked)
+						{
+						 	payment1=document.form1.payment[i].value;
+							//document.write("Hai " + len+"  "+document.form1.email.value);
+							break;
+						}
+					}
+					
+					
+					
+					if(payment1=="")
+					{
+					 	//document.write("inside function of if");
+					 	document.getElementById("payerror").innerHTML="payment option need to be checked" ;
+						return false;
+					}
+					
+					else
+					{
+					 	document.getElementById("payerror").innerHTML="";
+						return true;
+					}
+		   }
+		   
+		   function tncCheck()
+		   {
+		   			if(document.form1.tnc.checked)
+					{
+					 	document.getElementById("tncerror").innerHTML="";
+						return true;
+					}
+					else
+					{
+					 	document.getElementById("tncerror").innerHTML="Terms and Conditions not checked";
+						return false;
+					}
+					
+		   }
+   </script>
+  </head>
+  <body>
+  		<form name="form1" action="" method="post">
+  		<p>
+		   Email : <input type="text" name="email" id="emailid"/>
+		   <span style=color:red id="emailerror"></span>
+  		</p>
+		<p>
+		   <br> payment Methods <br>
+		   Credit card<input type="radio" name="payment" value="cc" />
+		   Debit card<input type="radio" name="payment" value="dc" />
+		   Netbanking<input type="radio" name="payment" value="net" />
+		   <span style=color:red id="payerror"></span>
+		</p>
+		<p>
+		I have read Terms and condition &nbsp;<input type="checkbox" name="tnc"/> 
+		<span style=color:red id="tncerror"></span>
+		</p>
+		<input type="button" name="Submit" value="Submit" onClick="validate()" />
+		
+		</form>
+  </body>
+</html>
